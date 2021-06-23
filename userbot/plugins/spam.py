@@ -35,6 +35,10 @@ async def bigspam(e):
         for i in range(1, counter):
             await e.respond(spam_message)
         await e.delete()
+        if BOTLOG:
+            await e.client.send_message(
+                BOTLOG_CHATID, "#BIGSPAM \n\n" "Bigspam was executed successfully"
+            )
         
     
 @bot.on(admin_cmd("delayspam (.*)"))
