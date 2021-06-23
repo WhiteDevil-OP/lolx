@@ -9,6 +9,7 @@ from telethon import Button, custom, events
 
 from . import CMD_LIST, catalive
 
+HELP_PIC = "https://telegra.ph/file/bfa06df35913425dbcbc1.jpg"
 CAT_IMG = Config.ALIVE_PIC or None
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
 
