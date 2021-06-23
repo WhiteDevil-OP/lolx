@@ -25,7 +25,18 @@ async def spammer(event):
         sleeptimem = 0.3
     await spam_function(event, sandy, cat, sleeptimem, sleeptimet)
 
-
+@bot.on(admin_cmd(pattern="bigspam"))
+@bot.on(sudo_cmd(pattern="bigspam", allow_sudo=True))
+async def bigspam(e):
+    if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
+        message = e.text
+        counter = int(message[9:13])
+        spam_message = str(e.text[13:])
+        for i in range(1, counter):
+            await e.respond(spam_message)
+        await e.delete()
+        
+    
 @bot.on(admin_cmd("delayspam (.*)"))
 @bot.on(sudo_cmd(pattern="delayspam (.*)", allow_sudo=True))
 async def spammer(event):
